@@ -20,3 +20,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 
     Route::resource('products', AdminProductController::class);
 });
+
+Route::get('/', [ProductCatalogController::class, 'index'])->name('shop.index');
+Route::get('/produk/{product:slug}', [ProductCatalogController::class, 'show'])->name('shop.show');
